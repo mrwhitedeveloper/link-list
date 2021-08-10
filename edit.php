@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase in PHP</title>
+    <title>Edit Link</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
@@ -15,12 +15,12 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-body">
-                            <h3>Edit data and Update using php in Firebase (Database)</h3>
+                            <h3>Edit Link</h3>
                             <hr>
                             <?php 
-                                include('includes/dbcon.php');
+                                include('includes/db.php');
                                 $token = $_GET['token'];
-                                $ref = "contact/";
+                                $ref = "links/";
                                 $getdata = $database->getReference($ref)->getChild($token)->getValue();
                             ?>
                             <form action="code.php" method="POST">
@@ -28,19 +28,19 @@
                                     <input type="hidden" name="ref_token" value="<?php echo $token; ?>">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" value="<?php echo $getdata['name']; ?>">
+                                            <input type="text" name="title" class="form-control" value="<?php echo $getdata['title']; ?>">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" name="email" class="form-control" value="<?php echo $getdata['email']; ?>">
+                                            <input type="text" name="domain" class="form-control" value="<?php echo $getdata['domain']; ?>">
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" name="phone" class="form-control" value="<?php echo $getdata['phone']; ?>">
+                                            <input type="text" name="created" class="form-control" value="<?php echo $getdata['created']; ?>">
                                         </div>
                                     </div>
 
