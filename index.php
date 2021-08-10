@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase in PHP</title>
+    <title>Link List</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
@@ -41,7 +41,7 @@
                                     ?>
                                     <h5 class="bg-primary px-3 text-center py-2 text-white">Total Record Inserted: <?php echo $totaldata ?></h5>
                                     <form action="code.php" method="POST">
-                                        <button type="submit" name="reset_data" class="btn btn-danger">Clear Data</button>
+                                        <!-- <button type="submit" name="reset_data" class="btn btn-danger">Clear Data</button> -->
                                         <a href="insert.php" class="btn btn-primary ml-3">Add</a>
                                     </form>
                                 </div>
@@ -60,9 +60,9 @@
                                 </thead>
                                 <tbody class="">
                                     <?php 
-                                        include('includes/dbcon.php');
+                                        include('includes/db.php');
 
-                                        $ref = "contact";
+                                        $ref = "links";
                                         $getdata = $database->getReference($ref)->getValue();
                                         $i = 0;
                                         if($getdata > 0)
