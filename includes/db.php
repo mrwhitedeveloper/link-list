@@ -3,7 +3,7 @@
 
    use Kreait\Firebase\Factory;
    use Kreait\Firebase\ServiceAccount;
-
+   date_default_timezone_set('Asia/Kolkata');
    // This assumes that you have placed the Firebase credentials in the same directory
    // as this PHP file.
    //echo __DIR__.'\dbconfig.json';
