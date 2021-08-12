@@ -6,11 +6,13 @@ if(isset($_POST['save_push_data']))
 {
     $title = $_POST['title'];
     $domain = $_POST['domain'];
+    $tags = $_POST['tags'];
     $created = $_POST['created'];
 
     $data = [
         'title' => $title,
         'domain' => $domain,
+        'tags' => $tags,
         'created' => $created,
     ];
 
@@ -32,11 +34,13 @@ if(isset($_POST['update_data']))
 
     $title = $_POST['title'];
     $domain = $_POST['domain'];
+    $tags = $_POST['tags'];
     $created = $_POST['created'];
 
     $data = [
         'title' => $title,
         'domain' => $domain,
+        'tags' => $tags,
         'created' => $created,
     ];
     $ref = "links/".$token;

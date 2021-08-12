@@ -37,7 +37,11 @@
                                             <input type="text" name="domain" class="form-control" value="<?php echo $getdata['domain']; ?>">
                                         </div>
                                     </div>
-
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="tags" class="form-control" value="<?php echo $getdata['tags']; ?>">
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <input type="text" name="created" class="form-control" value="<?php echo $getdata['created']; ?>">

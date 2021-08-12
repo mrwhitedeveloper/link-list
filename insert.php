@@ -30,7 +30,11 @@
                                             <input type="text" name="domain" class="form-control" placeholder="Enter Url" required>
                                         </div>
                                     </div>
-
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" name="tags" class="form-control" placeholder="Enter Tags" required>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <input type="text" name="created" class="form-control" placeholder="Enter Created" required value="<?php echo date('Y-m-d H:i:s');?>">
