@@ -1,3 +1,7 @@
+<?php
+include_once 'includes/db.php';
+include_once 'functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +11,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    
+
     <section class="mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <?php
-                        if(isset($_SESSION['status']) && $_SESSION['status'] !='') 
-                        {
-                            echo '
+if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+    echo '
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Hey!</strong> '.$_SESSION['status'].'
+                                <strong>Hey!</strong> ' . $_SESSION['status'] . '
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             ';
-                            unset($_SESSION['status']);
-                        }
-                    ?>
+    unset($_SESSION['status']);
+}
+?>
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -33,12 +36,12 @@
                                     <h4>Link List</h4>
                                 </div>
                                 <div class="col-md-4 text-right">
-                                    <?php 
-                                        include('includes/db.php');
+                                    <?php
 
-                                        $ref = "links";
-                                        $totaldata = $database->getReference($ref)->getSnapshot()->numChildren();
-                                    ?>
+
+$ref = "links";
+$totaldata = $database->getReference($ref)->getSnapshot()->numChildren();
+?>
                                     <h5 class="bg-primary px-3 text-center py-2 text-white">Total Record Inserted: <?php echo $totaldata ?></h5>
                                     <form action="code.php" method="POST">
                                         <!-- <button type="submit" name="reset_data" class="btn btn-danger">Clear Data</button> -->
@@ -60,22 +63,20 @@
                                     </tr>
                                 </thead>
                                 <tbody class="">
-                                    <?php 
-                                        include('includes/db.php');
+                                    <?php
 
-                                        $ref = "links";
-                                        $getdata = $database->getReference($ref)->getValue();
-                                        $i = 0;
-                                        if($getdata > 0)
-                                        {
-                                            foreach($getdata as $key => $row)
-                                            {
-                                                $i++;
-                                        ?>
+
+$ref = "links";
+$getdata = $database->getReference($ref)->getValue();
+$i = 0;
+if ($getdata > 0) {
+    foreach ($getdata as $key => $row) {
+        $i++;
+        ?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
-                                            <td><?php echo $row['title']; ?></td>
-                                            <td><?php echo $row['domain']; ?></td>
+                                            <td><a target="_blank" href="<?php echo $row['domain']; ?>"><?php echo $row['title']; ?></a></td>
+                                            <td><?php echo getDomain($row['domain']); ?></td>
                                             <td><?php echo $row['tags']; ?></td>
                                             <td><?php echo $row['created']; ?></td>
                                             <td>
@@ -89,17 +90,15 @@
                                             </td>
                                         </tr>
                                         <?php
-                                            }
-                                        }
-                                        else
-                                        {
-                                            ?>
+}
+} else {
+    ?>
                                             <tr class="text-center">
                                                 <td colspan="6">DATA NOT THERE IN DATABASE</td>
                                             </tr>
                                             <?php
-                                        }
-                                    ?>
+}
+?>
                                 </tbody>
                             </table>
                         </div>
