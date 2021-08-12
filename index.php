@@ -53,6 +53,7 @@
                                         <th>id</th>
                                         <th>Title</th>
                                         <th>Domain</th>
+                                        <th>Tags</th>
                                         <th>Created</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -75,6 +76,7 @@
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $row['title']; ?></td>
                                             <td><?php echo $row['domain']; ?></td>
+                                            <td><?php echo $row['tags']; ?></td>
                                             <td><?php echo $row['created']; ?></td>
                                             <td>
                                                 <a href="edit.php?token=<?php echo $key; ?>" class="btn btn-primary">Edit</a>
