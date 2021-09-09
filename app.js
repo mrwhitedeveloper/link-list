@@ -205,17 +205,17 @@ firebase.auth().onAuthStateChanged((user)=>{
         if(user != null){
             uid = user.uid;
         }
-        let firebaseRefKey = firebase.database().ref("links").child(uid);
-        firebaseRefKey.on('value', (dataSnapShot)=>{
-            document.getElementById("userPfFullName").innerHTML = dataSnapShot.val().userFullName;
-            document.getElementById("userPfSurname").innerHTML = dataSnapShot.val().userSurname;
-            // userEmail = dataSnapShot.val().userEmail;
-            // userPassword = dataSnapShot.val().userPassword;
-            document.getElementById("userPfFb").setAttribute('href', dataSnapShot.val().userFb);
-            document.getElementById("userPfTw").setAttribute('href', dataSnapShot.val().userTw);
-            document.getElementById("userPfGp").setAttribute('href', dataSnapShot.val().userGp);
-            document.getElementById("userPfBio").innerHTML = dataSnapShot.val().userBio;
-        })
+//         let firebaseRefKey = firebase.database().ref("links").child(uid);
+//         firebaseRefKey.on('value', (dataSnapShot)=>{
+//             document.getElementById("userPfFullName").innerHTML = dataSnapShot.val().userFullName;
+//             document.getElementById("userPfSurname").innerHTML = dataSnapShot.val().userSurname;
+//             // userEmail = dataSnapShot.val().userEmail;
+//             // userPassword = dataSnapShot.val().userPassword;
+//             document.getElementById("userPfFb").setAttribute('href', dataSnapShot.val().userFb);
+//             document.getElementById("userPfTw").setAttribute('href', dataSnapShot.val().userTw);
+//             document.getElementById("userPfGp").setAttribute('href', dataSnapShot.val().userGp);
+//             document.getElementById("userPfBio").innerHTML = dataSnapShot.val().userBio;
+//         })
     } else {
     //   No user is signed in.
     }
@@ -262,16 +262,16 @@ function saveProfile(){
         if(user != null){
             uid = user.uid;
         }
-        var firebaseRef = firebase.database().ref();
-        var userData = {
-            userFullName: userFullName,
-            userSurname: userSurname,
-            userFb: userFacebook,
-            userTw: userTwitter,
-            userGp: userGooglePlus,
-            userBio: userBio,
-        }
-        firebaseRef.child(uid).set(userData);
+//         var firebaseRef = firebase.database().ref();
+//         var userData = {
+//             userFullName: userFullName,
+//             userSurname: userSurname,
+//             userFb: userFacebook,
+//             userTw: userTwitter,
+//             userGp: userGooglePlus,
+//             userBio: userBio,
+//         }
+//         firebaseRef.child(uid).set(userData);
         swal({
             type: 'successfull',
             title: 'Update successfull',
