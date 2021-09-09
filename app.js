@@ -205,7 +205,7 @@ firebase.auth().onAuthStateChanged((user)=>{
         if(user != null){
             uid = user.uid;
         }
-        let firebaseRefKey = firebase.database().ref().child(uid);
+        let firebaseRefKey = firebase.database().ref("links").child(uid);
         firebaseRefKey.on('value', (dataSnapShot)=>{
             document.getElementById("userPfFullName").innerHTML = dataSnapShot.val().userFullName;
             document.getElementById("userPfSurname").innerHTML = dataSnapShot.val().userSurname;
