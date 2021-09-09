@@ -90,8 +90,8 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const firebase = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(firebase);
 </script>
 
 
